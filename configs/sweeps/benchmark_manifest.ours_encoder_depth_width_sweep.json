@@ -1,0 +1,74 @@
+{
+    "defaults":  {
+                     "batch_size":  64,
+                     "epochs":  12,
+                     "patience":  5,
+                     "lr":  0.001,
+                     "weight_decay":  0.0001,
+                     "train_ratio":  0.7,
+                     "val_ratio":  0.15,
+                     "efficiency_error_metric":  "mae",
+                     "models":  [
+                                    "ours"
+                                ]
+                 },
+    "seeds":  [
+                  42,
+                  43,
+                  44
+              ],
+    "datasets":  [
+                     {
+                         "name":  "ETTh1",
+                         "data_path":  "../../dataset/ETT-small/ETTh1.csv",
+                         "target_col":  "OT",
+                         "lookback":  96,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     },
+                     {
+                         "name":  "ETTm2",
+                         "data_path":  "../../dataset/ETT-small/ETTm2.csv",
+                         "target_col":  "OT",
+                         "lookback":  384,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     }
+                 ],
+    "sweeps":  [
+                   {
+                       "name":  "encoder_depth_width",
+                       "variants":  [
+                                        {
+                                            "label":  "D2_W16",
+                                            "overrides":  {
+                                                              "ours_depth":  2,
+                                                              "ours_summary_dim":  16
+                                                          }
+                                        },
+                                        {
+                                            "label":  "D3_W32",
+                                            "overrides":  {
+                                                              "ours_depth":  3,
+                                                              "ours_summary_dim":  32
+                                                          }
+                                        },
+                                        {
+                                            "label":  "D4_W64",
+                                            "overrides":  {
+                                                              "ours_depth":  4,
+                                                              "ours_summary_dim":  64
+                                                          }
+                                        }
+                                    ]
+                   }
+               ]
+}

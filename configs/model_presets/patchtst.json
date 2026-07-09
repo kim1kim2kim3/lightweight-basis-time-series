@@ -1,0 +1,9 @@
+{
+  "patchtst_patch_len": 16,
+  "patchtst_patch_stride": 8,
+  "patchtst_d_model": 512,
+  "patchtst_num_layers": 2,
+  "patchtst_num_heads": 8,
+  "patchtst_ff_dim": 2048,
+  "patchtst_dropout": 0.1
+}

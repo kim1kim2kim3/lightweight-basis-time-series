@@ -1,0 +1,14 @@
+{
+  "ours_latent_groups": 16,
+  "ours_summary_dim": 32,
+  "ours_depth": 3,
+  "ours_kernel_size": 3,
+  "ours_dilations": [
+    1,
+    2,
+    4
+  ],
+  "ours_trend_basis_count": 4,
+  "ours_seasonal_mode_count": 4,
+  "ours_transient_basis_count": 2
+}

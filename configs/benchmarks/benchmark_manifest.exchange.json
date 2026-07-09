@@ -1,0 +1,84 @@
+{
+    "defaults":  {
+                     "lookback":  70,
+                     "stl_period":  5,
+                     "batch_size":  64,
+                     "epochs":  12,
+                     "patience":  5,
+                     "lr":  0.001,
+                     "weight_decay":  0.0001,
+                     "train_ratio":  0.7,
+                     "val_ratio":  0.15,
+                     "efficiency_error_metric":  "mae",
+                     "models":  [
+                                    "stl_tcn",
+                                    "dlinear",
+                                    "tcn",
+                                    "gru",
+                                    "lstm_pure",
+                                    "patchtst"
+                                ]
+                 },
+    "seeds":  [
+                  42,
+                  43,
+                  44
+              ],
+    "datasets":  [
+                     {
+                         "name":  "ETTh1",
+                         "data_path":  "../../dataset/ETT-small/ETTh1.csv",
+                         "target_col":  "OT",
+                         "horizons":  [
+                                          7,
+                                          14,
+                                          21,
+                                          28
+                                      ]
+                     },
+                     {
+                         "name":  "ETTm2",
+                         "data_path":  "../../dataset/ETT-small/ETTm2.csv",
+                         "target_col":  "OT",
+                         "horizons":  [
+                                          7,
+                                          14,
+                                          21,
+                                          28
+                                      ]
+                     },
+                     {
+                         "name":  "electricity",
+                         "data_path":  "../../dataset/electricity/electricity.csv",
+                         "target_col":  "OT",
+                         "horizons":  [
+                                          7,
+                                          14,
+                                          21,
+                                          28
+                                      ]
+                     },
+                     {
+                         "name":  "ecl",
+                         "data_path":  "../../dataset/electricity/electricity.csv",
+                         "target_col":  "OT",
+                         "horizons":  [
+                                          7,
+                                          14,
+                                          21,
+                                          28
+                                      ]
+                     },
+                     {
+                         "name":  "traffic",
+                         "data_path":  "../../dataset/traffic/traffic.csv",
+                         "target_col":  "OT",
+                         "horizons":  [
+                                          7,
+                                          14,
+                                          21,
+                                          28
+                                      ]
+                     }
+                 ]
+}

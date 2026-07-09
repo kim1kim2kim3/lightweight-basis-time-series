@@ -1,0 +1,130 @@
+{
+  "defaults": {
+    "models": [
+      "ours"
+    ],
+    "batch_size": 32,
+    "epochs": 10,
+    "patience": 3,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "optimizer_name": "adam",
+    "loss_name": "mse",
+    "lr_schedule": "tslib_type1",
+    "early_stopping_metric": "val_loss",
+    "export_eval_predictions": false,
+    "export_ours_diagnostics": false
+  },
+  "seeds": [
+    42
+  ],
+  "datasets": [
+    {
+      "name": "ETTh1",
+      "data_path": "../../dataset/ETT-small/ETTh1.csv",
+      "target_col": "OT",
+      "lookback": 96,
+      "horizons": [
+        336,
+        720
+      ]
+    }
+  ],
+  "sweeps": [
+    {
+      "name": "parameter_optimization_defense",
+      "variants": [
+        {
+          "label": "default_11k",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "tiny_encoder",
+          "overrides": {
+            "ours_latent_groups": 8,
+            "ours_summary_dim": 16,
+            "ours_depth": 2,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 2,
+            "ours_transient_basis_count": 1
+          }
+        },
+        {
+          "label": "small_encoder",
+          "overrides": {
+            "ours_latent_groups": 8,
+            "ours_summary_dim": 32,
+            "ours_depth": 2,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "basis_light",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 2,
+            "ours_transient_basis_count": 1
+          }
+        },
+        {
+          "label": "summary_light",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 16,
+            "ours_depth": 2,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "seasonal_light",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 2,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "no_router_default",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2,
+            "ours_use_router": false
+          }
+        },
+        {
+          "label": "fixed_bank_default",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2,
+            "ours_adaptive_bank": false
+          }
+        }
+      ]
+    }
+  ]
+}

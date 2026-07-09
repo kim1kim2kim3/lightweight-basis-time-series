@@ -1,0 +1,51 @@
+{
+  "defaults": {
+    "models": [
+      "ours",
+      "dlinear",
+      "patchtst"
+    ],
+    "batch_size": 32,
+    "epochs": 10,
+    "patience": 3,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "optimizer_name": "adam",
+    "loss_name": "mse",
+    "lr_schedule": "tslib_type1",
+    "early_stopping_metric": "val_loss",
+    "export_eval_predictions": false,
+    "export_ours_diagnostics": false
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "datasets": [
+    {
+      "name": "ETTh1",
+      "data_path": "../../dataset/ETT-small/ETTh1.csv",
+      "target_col": "OT",
+      "lookback": 96,
+      "horizons": [
+        96,
+        192,
+        336,
+        720
+      ]
+    },
+    {
+      "name": "ETTm2",
+      "data_path": "../../dataset/ETT-small/ETTm2.csv",
+      "target_col": "OT",
+      "lookback": 384,
+      "horizons": [
+        96,
+        192,
+        336,
+        720
+      ]
+    }
+  ]
+}

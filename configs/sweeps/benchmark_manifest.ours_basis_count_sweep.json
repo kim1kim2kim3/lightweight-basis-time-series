@@ -1,0 +1,81 @@
+{
+    "defaults":  {
+                     "batch_size":  64,
+                     "epochs":  12,
+                     "patience":  5,
+                     "lr":  0.001,
+                     "weight_decay":  0.0001,
+                     "train_ratio":  0.7,
+                     "val_ratio":  0.15,
+                     "efficiency_error_metric":  "mae",
+                     "models":  [
+                                    "ours"
+                                ]
+                 },
+    "seeds":  [
+                  42,
+                  43,
+                  44
+              ],
+    "datasets":  [
+                     {
+                         "name":  "ETTh1",
+                         "data_path":  "../../dataset/ETT-small/ETTh1.csv",
+                         "target_col":  "OT",
+                         "lookback":  96,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     },
+                     {
+                         "name":  "ETTm2",
+                         "data_path":  "../../dataset/ETT-small/ETTm2.csv",
+                         "target_col":  "OT",
+                         "lookback":  384,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     }
+                 ],
+    "sweeps":  [
+                   {
+                       "name":  "basis_count",
+                       "variants":  [
+                                        {
+                                            "label":  "Kse2_Kre1",
+                                            "overrides":  {
+                                                              "ours_seasonal_mode_count":  2,
+                                                              "ours_transient_basis_count":  1
+                                                          }
+                                        },
+                                        {
+                                            "label":  "Kse4_Kre2",
+                                            "overrides":  {
+                                                              "ours_seasonal_mode_count":  4,
+                                                              "ours_transient_basis_count":  2
+                                                          }
+                                        },
+                                        {
+                                            "label":  "Kse6_Kre3",
+                                            "overrides":  {
+                                                              "ours_seasonal_mode_count":  6,
+                                                              "ours_transient_basis_count":  3
+                                                          }
+                                        },
+                                        {
+                                            "label":  "Kse8_Kre4",
+                                            "overrides":  {
+                                                              "ours_seasonal_mode_count":  8,
+                                                              "ours_transient_basis_count":  4
+                                                          }
+                                        }
+                                    ]
+                   }
+               ]
+}

@@ -1,0 +1,16 @@
+.env
+.pytest_cache/
+pytest-cache-files-*/
+.venv/
+tmp/
+runs/
+dataset/
+ml/.pytest_cache/
+ml/tests/.tmp/
+**/__pycache__/
+*.pyc
+archive/
+reports/**/eval_model_predictions*.csv
+*.pt
+*.pth
+*.ckpt

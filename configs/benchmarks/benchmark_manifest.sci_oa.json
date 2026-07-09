@@ -1,0 +1,89 @@
+{
+    "defaults":  {
+                     "lookback":  96,
+                     "batch_size":  64,
+                     "epochs":  12,
+                     "patience":  5,
+                     "lr":  0.001,
+                     "weight_decay":  0.0001,
+                     "train_ratio":  0.7,
+                     "val_ratio":  0.15,
+                     "efficiency_error_metric":  "mae",
+                     "models":  [
+                                    "dlinear",
+                                    "gru",
+                                    "lstm_pure",
+                                    "patchtst"
+                                ]
+                 },
+    "seeds":  [
+                  42,
+                  43,
+                  44
+              ],
+    "datasets":  [
+                     {
+                         "name":  "ETTh1",
+                         "data_path":  "../../dataset/ETT-small/ETTh1.csv",
+                         "target_col":  "OT",
+                         "decomposition_mode":  "stl",
+                         "stl_period":  24,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     },
+                     {
+                         "name":  "ETTm2",
+                         "data_path":  "../../dataset/ETT-small/ETTm2.csv",
+                         "target_col":  "OT",
+                         "lookback":  384,
+                         "decomposition_mode":  "stl",
+                         "stl_period":  96,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     },
+                     {
+                         "name":  "electricity",
+                         "data_path":  "../../dataset/electricity/electricity.csv",
+                         "target_col":  "OT",
+                         "lookback":  336,
+                         "batch_size":  16,
+                         "decomposition_mode":  "mstl",
+                         "mstl_periods":  [
+                                              24,
+                                              168
+                                          ],
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     },
+                     {
+                         "name":  "traffic",
+                         "data_path":  "../../dataset/traffic/traffic.csv",
+                         "target_col":  "OT",
+                         "lookback":  336,
+                         "batch_size":  16,
+                         "decomposition_mode":  "mstl",
+                         "mstl_periods":  [
+                                              24,
+                                              168
+                                          ],
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     }
+                 ]
+}

@@ -1,0 +1,200 @@
+{
+  "defaults": {
+    "models": [
+      "ours"
+    ],
+    "batch_size": 32,
+    "epochs": 10,
+    "patience": 3,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "optimizer_name": "adam",
+    "loss_name": "mse",
+    "lr_schedule": "tslib_type1",
+    "early_stopping_metric": "val_loss",
+    "export_eval_predictions": false,
+    "export_ours_diagnostics": false
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "datasets": [
+    {
+      "name": "ETTh1",
+      "data_path": "../../dataset/ETT-small/ETTh1.csv",
+      "target_col": "OT",
+      "lookback": 96,
+      "horizons": [
+        96,
+        192,
+        336,
+        720
+      ]
+    }
+  ],
+  "sweeps": [
+    {
+      "name": "larger_variants_full_confirmation",
+      "variants": [
+        {
+          "label": "default_11k",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "transient_plus",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 3
+          }
+        },
+        {
+          "label": "depth_4",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 4,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "seasonal_plus",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 6,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "basis_plus",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 6,
+            "ours_transient_basis_count": 3
+          }
+        },
+        {
+          "label": "depth_5",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 5,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "basis_plus_depth4",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 4,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 6,
+            "ours_transient_basis_count": 3
+          }
+        },
+        {
+          "label": "wider_groups_24",
+          "overrides": {
+            "ours_latent_groups": 24,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "groups24_depth4",
+          "overrides": {
+            "ours_latent_groups": 24,
+            "ours_summary_dim": 32,
+            "ours_depth": 4,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "wider_groups_32",
+          "overrides": {
+            "ours_latent_groups": 32,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "extended_local_freq",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 32,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2,
+            "ours_use_local_correction": true,
+            "ours_use_group_frequency_offset": true
+          }
+        },
+        {
+          "label": "summary_48",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 48,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "summary48_depth4",
+          "overrides": {
+            "ours_latent_groups": 16,
+            "ours_summary_dim": 48,
+            "ours_depth": 4,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        },
+        {
+          "label": "groups24_summary48",
+          "overrides": {
+            "ours_latent_groups": 24,
+            "ours_summary_dim": 48,
+            "ours_depth": 3,
+            "ours_trend_basis_count": 4,
+            "ours_seasonal_mode_count": 4,
+            "ours_transient_basis_count": 2
+          }
+        }
+      ]
+    }
+  ]
+}

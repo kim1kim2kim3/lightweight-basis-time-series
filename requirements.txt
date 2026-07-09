@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+statsmodels
+torch
+pytest
+python-docx
+requests
+pywin32; platform_system == "Windows"

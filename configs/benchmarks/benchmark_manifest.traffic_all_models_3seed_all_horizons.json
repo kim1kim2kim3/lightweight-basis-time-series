@@ -1,0 +1,39 @@
+{
+    "defaults":  {
+                     "batch_size":  16,
+                     "epochs":  12,
+                     "patience":  5,
+                     "lr":  0.001,
+                     "weight_decay":  0.0001,
+                     "train_ratio":  0.7,
+                     "val_ratio":  0.15,
+                     "efficiency_error_metric":  "mae",
+                     "models":  [
+                                    "ours",
+                                    "dlinear",
+                                    "patchtst",
+                                    "tcn",
+                                    "gru",
+                                    "lstm_pure"
+                                ]
+                 },
+    "seeds":  [
+                  42,
+                  43,
+                  44
+              ],
+    "datasets":  [
+                     {
+                         "name":  "traffic",
+                         "data_path":  "../../dataset/traffic/traffic.csv",
+                         "target_col":  "OT",
+                         "lookback":  336,
+                         "horizons":  [
+                                          96,
+                                          192,
+                                          336,
+                                          720
+                                      ]
+                     }
+                 ]
+}
